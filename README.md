@@ -270,20 +270,13 @@ These instructions are for building Simbody from source on either a Mac or on Ub
 On a Mac, the Xcode developer package gives LAPACK and BLAS to you via the Accelerate
 framework. Mac's come with the visualization dependencies.
 
-On Ubuntu, we need to get the dependencies ourselves.
+On Ubuntu, we need to get the dependencies ourselves. Open a terminal and run the following commands.
 
-1. Get the necessary dependencies:
-    ```
-    $ sudo apt-get install cmake liblapack-dev
+1. Get the necessary dependencies: `$ sudo apt-get install cmake liblapack-dev`
     ```
 2. If you want to use the CMake GUI, install `cmake-qt-gui`.
-3. For visualization (optional):
-    ```
-    $ sudo apt-get install freeglut3-dev libxi-dev libxmu-dev
-    ```
-4. For API documentation (optional):
-    ```
-    $ sudo apt-get install doxygen
+3. For visualization (optional): `$ sudo apt-get install freeglut3-dev libxi-dev libxmu-dev`
+4. For API documentation (optional): `$ sudo apt-get install doxygen`
     ```
 
 
