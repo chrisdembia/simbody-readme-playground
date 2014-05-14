@@ -92,19 +92,10 @@ You want to...
 
 ---
 
-Installing
-----------
-
-
-Simbody works on Windows, Mac, and Linux. For Windows, you must build from source. For Mac and Linux, you can use a package manager or build from source. We provide instructions for 4 different ways of installing Simbody:
-
-1. [**Windows**](#windows): build from source using Microsoft Visual Studio
-2. [**Mac**](#mac): install with Homebrew
-3. [**Ubuntu**](#ubuntu): install with apt-get
-4. [**UNIX (Mac, Linux)**](#unix): build from source using gcc or Clang with Makefile's.
 
 Dependencies
 ------------
+
 Simbody depends on the following:
 
 * cross-platform building: [CMake](http://www.cmake.org/cmake/resources/software.html) 2.8 or greater.
@@ -113,9 +104,22 @@ Simbody depends on the following:
 * visualization (optional): [FreeGLUT](http://freeglut.sourceforge.net/), [Xi and Xmu](http://www.x.org/wiki/)
 * API documentation (optional): [Doxygen](http://www.stack.nl/~dimitri/doxygen/)
 
----
 
-### Windows: build from source using Microsoft Visual Studio {#windows}
+Installing
+----------
+
+Simbody works on Windows, Mac, and Linux. For Windows, you must build from source. For Mac and Linux, you can use a package manager or build from source. In this file, we provide instructions for 4 different ways of installing Simbody:
+
+1. [**Windows**](#windows-and-visual-studio): build from source using Microsoft Visual Studio
+2. [**Mac**](#mac-and-homebrew): install with Homebrew
+3. [**Ubuntu**](#ubuntu-and-apt-get): install with apt-get
+4. [**UNIX (Mac, Linux)**](#unix-and-makefiles): build from source using gcc or Clang with Makefile's.
+
+These are not the only ways to install Simbody, however. For example, on a Mac, you could use CMake and Xcode.
+
+
+Windows and Visual Studio
+-------------------------
 
 #### Get the dependencies
 
@@ -179,9 +183,13 @@ How is your Simbody installation organized?
 * `lib/` "import" libraries, used during linking.
 * `share/` CMake files that are useful for projects that use Simbody.
 
----
 
-### Mac: install with Homebrew {#mac}
+Mac and Homebrew
+----------------
+
+If using a Mac and Homebrew, the dependencies are taken care of for you.
+
+With this method, Simbody is built without the `-std=c++11` flag. Thus, any projects you build on top of Simbody must also NOT use `-std=c++11`. If you do try to use `-std=c++11`, you'll run into mysterious errors. See issue #125.
 
 #### Install
 
@@ -203,15 +211,14 @@ How is your Simbody installation organized?
 Simbody is now installed to `/usr/local/Cellar/simbody/<version>/`, where `<version>` is either the version number (e.g., `3.4`), or `HEAD` if you specified `--HEAD` above.
 
 Some directories are symlinked (symbolically linked) to `/usr/local/`, which is where your system typically expects to find executables, shared libraries (.dylib's), headers (.h's), etc. The following directories from the Simbody installation are symlinked:
-```
-include/simbody   -> /usr/local/include/simbody
-lib               -> /usr/local/lib
-share/doc/simbody -> /usr/local/share/doc/simbody
-```
+
+* `include/simbody   -> /usr/local/include/simbody`
+* `lib               -> /usr/local/lib`
+* `share/doc/simbody -> /usr/local/share/doc/simbody`
 
 #### Layout of installation
 
-What's in the `/usr/local/Cellar/simbody/<version>` directory?
+What's in the `/usr/local/Cellar/simbody/<version>/` directory?
 
 * `include/simbody/` the header (.h) files; necessary for projects that use Simbody.
 * `lib/` shared libraries (.dylib's), used at runtime.
@@ -222,33 +229,81 @@ What's in the `/usr/local/Cellar/simbody/<version>` directory?
 * `share/doc/simbody/` a few manuals, as well as API docs (`SimbodyAPI.html`).
     * `examples/` source code for the examples.
 
----
 
-### Ubuntu: install with apt-get {#ubuntu}
+Ubuntu and apt-get
+------------------
 
----
+You can currently get Simbody via the Open Source Robotics Foundation's Debian repositories. We are currently working on getting Simbody directly into the Debian repositories. `apt-get` will take care of getting the necessary dependencies.
 
-### UNIX: build from source {#unix}
+With this method, Simbody is built without the `-std=c++11` flag. Thus, any projects you build on top of Simbody must also NOT use `-std=c++11`. If you do try to use `-std=c++11`, you'll run into mysterious errors. See issue #125.
 
-The Xcode developer package gives LAPACK and BLAS to you via the Accelerate
+#### Install
+
+1. Setup your computer to accept software from packages.osrfoundation.org. This step depends on your version of Ubuntu. For more detailed instructions, see [OSRF's installation instructions](http://gazebosim.org/wiki/3.0/install#Ubuntu_Debians).
+    * 12.04: `sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'`
+    * 13.10: `sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu saucy main" > /etc/apt/sources.list.d/gazebo-latest.list'`
+2. Install Simbody.
+```
+$ sudo apt-get update
+$ sudo apt-get install libsimbody-dev
+```
+
+#### Layout of installation
+
+Simbody is installed into the `usr/` directory.
+
+* `usr/include/simbody/` the header (.h) files; necessary for projects that use Simbody.
+* `usr/lib/` shared libraries (.dylib's), used at runtime.
+    * `cmake/simbody/` CMake files that are useful for projects that use Simbody.
+    * `pkgconfig/` pkg-config files useful for projects that use Simbody.
+* `usr/libexec/simbody/` the `simbody-visualizer` executable.
+* `usr/share/doc/simbody/` a few manuals, as well as API docs (`SimbodyAPI.html`).
+
+
+UNIX and Makefiles
+------------------
+
+These instructions are for building Simbody from source on either a Mac or on Ubuntu.
+
+#### Get dependencies
+
+On a Mac, the Xcode developer package gives LAPACK and BLAS to you via the Accelerate
 framework. Mac's come with the visualization dependencies.
 
-Building and Installing
------------------------
-We currently do not provide a pre-built binary distribution; you must build the
-source code yourself. We're working on getting Simbody into the Debian and
-Ubuntu repositories, though, so you'll be able to `apt-get` them.
+On Ubuntu, we need to get the dependencies ourselves.
+
+1. Get the necessary dependencies:
+    ```
+    $ sudo apt-get install cmake liblapack-dev
+    ```
+2. If you want to use the CMake GUI, install `cmake-qt-gui`.
+3. For visualization (optional):
+    ```
+    $ sudo apt-get install freeglut3-dev libxi-dev libxmu-dev
+    ```
+4. For API documentation (optional):
+    ```
+    $ sudo apt-get install doxygen
+    ```
 
 
-#### Install CMake
+#### Get the Simbody source code
 
-[Download](http://www.cmake.org/cmake/resources/software.html) and install
-CMake, which is a program we use to manage the build process. On Ubuntu, you
-can obtain CMake via `$ apt-get install cmake` in a terminal.
+There are two ways to get the source code.
 
-### Configure your build
+* Download the source code from https://github.com/simbody/simbody/releases. Look for the highest-numbered release, click on the .zip button, and unzip it on your computer. We'll assume you unzipped the source code into `~/simbody-source`.
+* Clone the git repository.
+    1. Get git.
+        * Mac: Install [homebrew](http://brew.sh/) and run `brew install git` in a terminal.
+        * Ubuntu: run `sudo apt-get install git` in a terminal.
+    2. Clone the github repository into `~/simbody-source`.
+    ```
+    $ git clone https://github.com/simbody/simbody.git ~/simbody-source
+    # git checkout Simbody-3.4
+    ```
+    3. In the last line above, we assumed you want to build a released version. Feel free to change the version you want to build. If you want to build the latest development version ("bleeding edge") of Simbody off the master branch, you can omit the `checkout` line.
 
-Open CMake.
+
 
 #### Build and install Simbody
 
@@ -298,17 +353,7 @@ In your new terminal window, run:
 
 
 ### Linux/Ubuntu
-Your system's package manager surely has the dependencies. On Ubuntu you can
-enter the following in a terminal:
-```sh
-$ apt-get install liblapack-dev
-```
 
-Optionally, for visualization:
-
-```sh
-$ apt-get install freeglut3-dev libxi-dev libxmu-dev
-```
 You may need to run these lines as a superuser (`sudo apt-get ...`).
 
 
@@ -319,6 +364,5 @@ You may need to run these lines as a superuser (`sudo apt-get ...`).
 [simbios]: http://simbios.stanford.edu/
 [thy]: https://github.com/simbody/simbody/raw/master/Simbody/doc/SimbodyTheoryManual.pdf
 [flores]: https://simtk.org/forums/memberlist.php?mode=viewprofile&u=482
-[forum]: 
 [buildwin]: https://github.com/simbody/simbody/raw/master/doc/HowToBuildSimbodyFromSource_Windows.pdf
 [buildunix]: https://github.com/simbody/simbody/raw/master/doc/HowToBuildSimbodyFromSource_MacLinux.pdf
