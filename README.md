@@ -285,13 +285,13 @@ There are two ways to get the source code.
 * Download the source code from https://github.com/simbody/simbody/releases. Look for the highest-numbered release, click on the .zip button, and unzip it on your computer. We'll assume you unzipped the source code into `~/simbody-source`.
 * Clone the git repository.
     1. Get git.
-        * Mac: Install [homebrew](http://brew.sh/) and run `brew install git` in a terminal.
+        * Mac: Install [Homebrew](http://brew.sh/) and run `brew install git` in a terminal.
         * Ubuntu: run `sudo apt-get install git` in a terminal.
     2. Clone the github repository into `~/simbody-source`.
-    ```
-    $ git clone https://github.com/simbody/simbody.git ~/simbody-source
-    # git checkout Simbody-3.4
-    ```
+        ```
+        $ git clone https://github.com/simbody/simbody.git ~/simbody-source
+        # git checkout Simbody-3.4
+        ```
     3. In the last line above, we assumed you want to build a released version. Feel free to change the version you want to build. If you want to build the latest development version ("bleeding edge") of Simbody off the master branch, you can omit the `checkout` line.
 
 
