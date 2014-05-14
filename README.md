@@ -92,7 +92,8 @@ You want to...
 
 ---
 
-## Installing
+Installing
+----------
 
 
 Simbody works on Windows, Mac, and Linux. For Windows, you must build from source. For Mac and Linux, you can use a package manager or build from source. We provide instructions for 4 different ways of installing Simbody:
