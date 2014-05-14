@@ -81,7 +81,7 @@ Features
 
 You want to...
 --------------
-* **[install Simbody](#install-simbody)** (see also: old [Windows][buildwin] and [Mac/Linux][buildunix] build instructions, [old install instructions][user]).
+* **[install Simbody](#installing)** (see also: old [Windows][buildwin] and [Mac/Linux][buildunix] build instructions, [old install instructions][user]).
 * [use Simbody in your own program][user].
 * [view API documentation](https://simtk.org/api_docs/simbody/api_docs33/Simbody/html/index.html).
 * [learn the theory behind Simbody](https://github.com/simbody/simbody/raw/master/Simbody/doc/SimbodyTheoryManual.pdf).
@@ -92,7 +92,7 @@ You want to...
 
 ---
 
-##Install Simbody##
+## Installing
 
 
 Simbody works on Windows, Mac, and Linux. For Windows, you must build from source. For Mac and Linux, you can use a package manager or build from source. We provide instructions for 4 different ways of installing Simbody:
