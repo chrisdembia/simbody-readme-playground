@@ -388,7 +388,6 @@ If you are only building Simbody to use it with OpenSim, you can skip this secti
         ```
     
         These commands add a line to a configuration file that is loaded every time you open a new terminal. If using Ubuntu, you may need to replace `x86_64-linux-gnu` with the appropriate directory on your computer.
-
 2. Open a new terminal.
 3. Test your installation:
 
