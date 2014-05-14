@@ -81,7 +81,7 @@ Features
 
 You want to...
 --------------
-* **[Install Simbody](#installing)** (see also: old [Windows][buildwin] and [Mac/Linux][buildunix] build instructions, [old install instructions][user]).
+* **[Install Simbody](#install-simbody)** (see also: old [Windows][buildwin] and [Mac/Linux][buildunix] build instructions, [old install instructions][user]).
 * [use Simbody in your own program][user].
 * [view API documentation](https://simtk.org/api_docs/simbody/api_docs33/Simbody/html/index.html).
 * [learn the theory behind Simbody](https://github.com/simbody/simbody/raw/master/Simbody/doc/SimbodyTheoryManual.pdf).
