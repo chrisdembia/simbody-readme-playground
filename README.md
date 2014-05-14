@@ -239,7 +239,7 @@ With this method, Simbody is built without C++11 (the `-std=c++11` compiler flag
 
 #### Install
 
-* Setup your computer to accept software from packages.osrfoundation.org. This step depends on your version of Ubuntu. For more detailed instructions, see [OSRF's installation instructions](http://gazebosim.org/wiki/3.0/install#Ubuntu_Debians).
+1. Setup your computer to accept software from packages.osrfoundation.org. This step depends on your version of Ubuntu. For more detailed instructions, see [OSRF's installation instructions](http://gazebosim.org/wiki/3.0/install#Ubuntu_Debians).
 
     * 12.04:
     
@@ -249,7 +249,7 @@ With this method, Simbody is built without C++11 (the `-std=c++11` compiler flag
      
             sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu saucy main" > /etc/apt/sources.list.d/gazebo-latest.list'
         
-* Install Simbody.
+2. Install Simbody.
 
         $ sudo apt-get update
         $ sudo apt-get install libsimbody-dev
@@ -345,7 +345,7 @@ There are two ways to get the source code.
 
 Just so you know, you can also uninstall (delete all files that CMake placed into `CMAKE_INSTALL_PREFIX`) if you're in `~/simbody-build`.
 
-        $ make uninstall
+    $ make uninstall
 
 
 #### Set environment variables and test the installation
