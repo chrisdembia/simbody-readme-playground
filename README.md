@@ -255,10 +255,8 @@ With this method, Simbody is built without C++11 (the `-std=c++11` compiler flag
         
 2. Install Simbody.
  
-    ```
-    $ sudo apt-get update
-    $ sudo apt-get install libsimbody-dev
-    ```
+        $ sudo apt-get update
+        $ sudo apt-get install libsimbody-dev
 
 #### Layout of installation
 
