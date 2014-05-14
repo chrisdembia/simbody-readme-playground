@@ -303,25 +303,32 @@ $ cd ~/simbody-build
 
 2. Configure your Simbody build with CMake. We'll use the `cmake` command but you could also use the interactive tools `ccmake` or `cmake-gui`. You have a few configuration options to play with here.
     * If you don't want to fuss with any options, run:
-    ```
-    $ cmake ~/simbody-source
-    ```
+
+        ```
+        $ cmake ~/simbody-source
+        ```
+        
     * Where do you want to install Simbody? By default, it is installed to `/usr/local/`. You can change this via the `CMAKE_INSTALL_PREFIX` variable. Let's choose `~/simbody`:
-    ```
-    $ cmake ~/simbody-source -DCMAKE_INSTALL_PREFIX=~/simbody
-    ```
+    
+        ```
+        $ cmake ~/simbody-source -DCMAKE_INSTALL_PREFIX=~/simbody
+        ```
+        
     * Do you want to use C++11? By default, Simbody assumes not. If you plan to use Simbody in a project that DOES use C++11, then you must build Simbody with C++11 as well. You can change this via the `SIMBODY_STANDARD_11` flag:
-    ```
-    $ cmake ~/simbody-source -DSIMBODY_STANDARD_11=on
-    ```
+    
+        ```
+        $ cmake ~/simbody-source -DSIMBODY_STANDARD_11=on
+        ```
+        
     * There are a few other variables you might want to play with:
         * `BUILD_EXAMPLES` on by default
         * `BUILD_TESTING` on by default
         * `BUILD_VISUALIZER` on by default
         You can combine all these options. Here's another example:
-    ```
-    $ cmake ~/simbody-source -DCMAKE_INSTALL_PREFIX=~/simbody -DBUILD_VISUALIZER=off 
-    ```
+        
+        ```
+        $ cmake ~/simbody-source -DCMAKE_INSTALL_PREFIX=~/simbody -DBUILD_VISUALIZER=off 
+        ```
 
 3. Compile. Use the `-jn` flag to build using `n` processor cores. For example:
     ```
