@@ -251,7 +251,9 @@ With this method, Simbody is built without C++11 (the `-std=c++11` compiler flag
         ```
         sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu saucy main" > /etc/apt/sources.list.d/gazebo-latest.list'
         ```
+        
 2. Install Simbody.
+ 
     ```
     $ sudo apt-get update
     $ sudo apt-get install libsimbody-dev
